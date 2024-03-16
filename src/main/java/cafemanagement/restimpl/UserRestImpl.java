@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import cafemanagement.constants.CafeConstants;
 import cafemanagement.rest.UserRest;
 import cafemanagement.service.UserService;
+import cafemanagement.utils.CafeUtils;
 
 @RestController
 public class UserRestImpl implements UserRest {
@@ -23,7 +25,7 @@ public class UserRestImpl implements UserRest {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		return new ResponseEntity<String>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+		return CafeUtils.getResponseEntity(CafeConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 }
